@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  ai4mars:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      network: host
+      args:
+        - VARIANT=22.04
+    image: ai4mars:latest
+    container_name: ai4mars
+    working_dir: /workspace
+    ipc: host
+    stdin_open: true
+    tty: true
+    cap_add:
+      - SYS_PTRACE
+      - SYS_RESOURCE
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    volumes:
+      - .:/workspace:cached
+    secrets:
+      - kaggle_json
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
+
+# Runtime secrets used by the Docker service(s)
+secrets:
+  kaggle_json:
+    file: ~/kaggle.json

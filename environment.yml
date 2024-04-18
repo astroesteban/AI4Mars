@@ -1,0 +1,32 @@
+name: ai4mars
+channels:
+  - pytorch
+  - conda-forge
+  - fastchan
+  - nvidia
+dependencies:
+  - python=3.11
+  - pip
+  - pytorch=2.2
+  - torchvision=0.17
+  - torchaudio=2.2
+  - torchinfo=1.8
+  - pytorch-cuda=12.1
+  - fastai=2.7
+  - fastbook
+  - kaggle
+  - datasets
+  - ipywidgets
+  - widgetsnbextension
+  - ipykernel
+  - seaborn
+  - black
+  - black[jupyter]
+  - pytest
+  - nvitop
+  - wandb
+  - pip:
+    - timm
+    - torchshow
+    - sentencepiece
+    - protobuf
