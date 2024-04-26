@@ -5,7 +5,7 @@ channels:
   - fastchan
   - nvidia
 dependencies:
-  - python=3.11
+  - python=3.12
   - pip
   - pytorch=2.2
   - torchvision=0.17
@@ -14,7 +14,6 @@ dependencies:
   - pytorch-cuda=12.1
   - fastai=2.7
   - fastbook
-  - kaggle
   - datasets
   - ipywidgets
   - widgetsnbextension
@@ -24,9 +23,10 @@ dependencies:
   - black[jupyter]
   - pytest
   - nvitop
-  - wandb
+  - wandb=0.16
+  - kaggle
   - pip:
     - timm
     - torchshow
     - sentencepiece
-    - protobuf
+    - protobuf==3.20

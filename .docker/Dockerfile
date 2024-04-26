@@ -1,4 +1,4 @@
-ARG VARIANT="22.04"
+ARG VARIANT="24.04"
 FROM ubuntu:${VARIANT} AS base
 
 # disable prompting during package installation
@@ -31,8 +31,8 @@ ENV CONDA_INSTALL_PREFIX=${CONDA_INSTALL_PREFIX}
 ENV PATH="${CONDA_INSTALL_PREFIX}/bin:${PATH}"
 ARG PATH="${CONDA_INSTALL_PREFIX}/bin:${PATH}"
 
-# Install Miniconda with Python 3.11
-RUN axel -q -n $(nproc) https://repo.anaconda.com/miniconda/Miniconda3-py311_23.11.0-2-Linux-x86_64.sh -o /root/miniconda_install.sh \
+# Install Miniconda with Python 3.12
+RUN axel -q -n $(nproc) https://repo.anaconda.com/miniconda/Miniconda3-py312_24.3.0-0-Linux-x86_64.sh -o /root/miniconda_install.sh \
   && bash /root/miniconda_install.sh -b -p ${CONDA_INSTALL_PREFIX} \
   && rm /root/miniconda_install.sh \
   && echo "Running $(conda --version)" \
